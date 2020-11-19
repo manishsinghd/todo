@@ -1,0 +1,41 @@
+{% extends "todo/base.html" %}
+{% load static %}
+{% block content %}
+ <style>
+        div.text000 {
+        text-align:center;
+        }
+    </style>
+<div class="text000">
+  <form class="form-inline my-2 my-lg-0" method="post">
+    {% csrf_token %}
+    <input id="t1" type="text" class="w3-input w3-border" placeholder="tiems..." aria-label="text" name="item" size="80" >
+    <button id="t2" class="btn btn-outline-success my-2 my-sm-0" type="submit">Add Item</button>
+  </form>
+</div>
+  {% if all_items %}
+  <div id="123">
+    <table class="table table-bordered" style="width:1000px; margin-top:140px; margin-left:150px;">
+    {% for things in all_items %}
+      {% if things.completed %}
+        <tr class="table-secondary">
+          <td class="strike"><a href="{% url 'edit' things.id %}">{{things.item}}</a></td>
+          <td><center><a href="{% url 'uncross' things.id %}">uncross</a> </center></td>
+          <td><center><a href="{% url 'delete' things.id %}">delete</a> </center></td>
+        </tr>
+      {% else %}
+        <tr>
+          <td><a href="{% url 'edit' things.id %}">{{things.item}}</a></td>
+         <td><center><a href="{% url 'cross_off' things.id %}">cross_off</a> </center></td>
+          <td><center><a href="{% url 'delete' things.id %}">delete</a> </center></td>
+        </tr>
+      {% endif %}
+    {% endfor %}
+    </table>
+</div>
+  {% endif %}
+
+{% endblock %}
+
+
+

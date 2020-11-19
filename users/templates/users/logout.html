@@ -1,0 +1,26 @@
+{% extends "todo/base.html" %}
+{% load static %}
+{% block content %}
+<div class="imagesContainer">
+    <img src="{% static 'todo/plashs.jpg' %}" width="100%" height="100%">
+    <style>
+        div.text123 {
+        text-align:center;
+        }
+    </style>
+    <div class="text123">
+        <a href="{% url 'login' %}">Login Again</a>
+    </div>
+</div>
+
+
+
+<!--<a href="{% url 'login' %}">dfghjkjhg</a>-->
+
+
+{% endblock %}
+
+
+
+
+

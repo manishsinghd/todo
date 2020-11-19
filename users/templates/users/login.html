@@ -1,0 +1,40 @@
+{% extends "todo/base.html" %}
+{% load static %}
+
+
+{% block content %}
+  <div id="image">
+    <img src="{% static 'todo/plashs.jpg' %}" width="100%" height="100%">
+  </div>
+{% csrf_token %}
+<div id="loginForm">
+  <div class="container__child signup__form">
+    <form  method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="username">user name</label>
+        <input class="form-control" type="text" name="username" id="username" placeholder="james.bond" required />
+      </div>
+      <div class="form-group">
+        <label for="password">password</label>
+        <input class="form-control" type="password" name="password" id="password" placeholder="********" required />
+      </div>
+      <div class="m-t-lg">
+        <ul class="list-inline">
+          <li>
+            <input class="btn btn--form" type="submit" value="login" />
+          </li>
+          <li>
+            <a class="signup__link" href="#">Need an account?</a>
+          </li>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
+
+
+
